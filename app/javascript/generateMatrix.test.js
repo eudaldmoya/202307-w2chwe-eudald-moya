@@ -1,4 +1,4 @@
-import generateMatrix from "../generateMatrix";
+import generateMatrix from "./generateMatrix";
 
 describe("Given a generateMatrix function", () => {
   describe("When it receives 3, 3", () => {
