@@ -20,15 +20,18 @@ class Matrix {
       throw new Error("Matrix must be 50x50 or less");
     }
 
-    const cellList = [];
+    const cellRows = [];
     for (let i = 1; i <= this.rows; i++) {
+      const cellColumns = [];
       for (let j = 1; j <= this.columns; j++) {
         const cell = new Cell(i, j, false);
-        cellList.push(cell);
+        cellColumns.push(cell);
       }
+
+      cellRows.push(cellColumns);
     }
 
-    return cellList;
+    return cellRows;
   }
 }
 
