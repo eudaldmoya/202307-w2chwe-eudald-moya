@@ -34,4 +34,16 @@ describe("Given a generateMatrix function", () => {
       }).toThrow(new Error(expectedTextError));
     });
   });
+
+  describe("When it receives 2, 2", () => {
+    test("Then it should throw error with message 'Matrix must be at least 3x3'", () => {
+      const rows = 2;
+      const columns = 2;
+      const expectedTextError = "Matrix must be at least 3x3";
+
+      expect(() => {
+        generateMatrix(rows, columns);
+      }).toThrow(new Error(expectedTextError));
+    });
+  });
 });
