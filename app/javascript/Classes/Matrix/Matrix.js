@@ -33,6 +33,15 @@ class Matrix {
 
     return cellRows;
   }
+
+  getNewCellsState() {
+    const newStatesList = [];
+    for (let i = 1; i <= this.cellList.length; i++) {
+      for (let j = 1; j <= this.cellList[0].length; j++) {
+        newStatesList.push(this.calculateNewCellState(i, j));
+      }
+    }
+  }
 }
 
 export default Matrix;
