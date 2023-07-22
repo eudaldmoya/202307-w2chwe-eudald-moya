@@ -1,11 +1,7 @@
 class Cell {
   isAlive;
-  iPosition;
-  jPosition;
 
-  constructor(iPosition, jPosition, isAlive = false) {
-    this.iPosition = iPosition;
-    this.jPosition = jPosition;
+  constructor(isAlive) {
     this.isAlive = isAlive;
   }
 }

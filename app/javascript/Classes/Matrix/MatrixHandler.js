@@ -24,7 +24,7 @@ class Matrix {
     for (let i = 1; i <= this.rows; i++) {
       const cellColumns = [];
       for (let j = 1; j <= this.columns; j++) {
-        const cell = new Cell(i, j, false);
+        const cell = new Cell(Math.random() < 0.2);
         cellColumns.push(cell);
       }
 
@@ -40,6 +40,41 @@ class Matrix {
       for (let j = 1; j <= this.cellList[0].length; j++) {
         newStatesList.push(this.calculateNewCellState(i, j));
       }
+    }
+
+    return newStatesList;
+  }
+
+  calculateNewCellState(i, j) {
+    const neighbours = [
+      this.cellList[i - 1][j - 1].isAlive,
+      this.cellList[i - 1][j].isAlive,
+      this.cellList[i - 1][j + 1].isAlive,
+      this.cellList[i][j - 1].isAlive,
+      this.cellList[i][j + 1].isAlive,
+      this.cellList[i + 1][j - 1].isAlive,
+      this.cellList[i + 1][j].isAlive,
+      this.cellList[i + 1][j + 1].isAlive,
+    ];
+    let amountOfNeighboursAlive = 0;
+    neighbours.forEach((neighbour) => {
+      if (neighbour === true) {
+        amountOfNeighboursAlive++;
+      }
+    });
+    if (
+      this.cellList[i][j].isAlive === false &&
+      amountOfNeighboursAlive === 3
+    ) {
+      return true;
+    }
+
+    if (this.cellList[i][j].isAlive) {
+      if (amountOfNeighboursAlive === 2 || amountOfNeighboursAlive === 3) {
+        return true;
+      }
+
+      return false;
     }
   }
 }
