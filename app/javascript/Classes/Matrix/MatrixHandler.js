@@ -53,7 +53,7 @@ class MatrixHandler {
     }
   }
 
-  getNewCellsState() {
+  getNewCellStates() {
     const newStatesList = [];
     for (let i = 0; i < this.cellList.length; i++) {
       for (let j = 0; j < this.cellList[0].length; j++) {
