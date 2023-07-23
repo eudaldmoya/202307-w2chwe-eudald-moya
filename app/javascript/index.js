@@ -1,9 +1,11 @@
-import Cell from "./Classes/Cell/Cell.js";
 import MatrixHandler from "./Classes/Matrix/MatrixHandler.js";
 
-const matrix = new MatrixHandler(4, 4);
-console.table(matrix.cellList);
-console.log(matrix.getNewCellsState());
+const matrix = new MatrixHandler(20, 20);
+const runGame = () => {
+  console.table(matrix.cellList);
+  const newStates = matrix.getNewCellsState();
+  matrix.setNewCellStates(newStates);
+  console.table(matrix.cellList);
+};
 
-const cell = new Cell(2, 2, true);
-console.log(cell);
+setInterval(runGame, 1000);

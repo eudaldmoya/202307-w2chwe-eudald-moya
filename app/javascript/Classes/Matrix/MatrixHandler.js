@@ -41,10 +41,12 @@ class MatrixHandler {
   }
 
   setNewCellStates(newStatesList) {
+    const cellDivs = document.querySelectorAll(".cell-div");
     let position = 0;
     for (let i = 0; i < this.cellList.length; i++) {
       for (let j = 0; j < this.cellList[0].length; j++) {
         this.cellList[i][j].isAlive = newStatesList[position];
+        cellDivs[position].textContent = this.cellList[i][j].isAlive ? 1 : 0;
         position++;
       }
     }
