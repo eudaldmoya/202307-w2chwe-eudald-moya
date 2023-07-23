@@ -28,4 +28,18 @@ describe("Given the MatrixHandler.setNeighboursList method", () => {
       expect(amountOfNeighbours).toBe(expectedNeighbours);
     });
   });
+
+  describe("When it receives 1, 1", () => {
+    test("Then it should have 0 undefined neighbours", () => {
+      const matrix = new MatrixHandler(4, 4);
+      const expectedNeighbours = 0;
+
+      const neighbours = matrix.setNeighboursList(1, 1);
+      const amountOfNeighbours = neighbours.filter(
+        (neighbour) => neighbour === "undefined"
+      ).length;
+
+      expect(amountOfNeighbours).toBe(expectedNeighbours);
+    });
+  });
 });
