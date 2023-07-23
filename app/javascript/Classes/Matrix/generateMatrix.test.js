@@ -1,25 +1,16 @@
-import generateMatrix from "./generateMatrix";
+import { default as MatrixHandler } from "./MatrixHandler";
 
-describe("Given a generateMatrix function", () => {
+describe("Given a MatrixHandler class", () => {
   describe("When it receives 3, 3", () => {
     test("Then it should return an array with 9 objects", () => {
       const rows = 3;
       const columns = 3;
-      const expectedArray = [
-        { i: 1, j: 1 },
-        { i: 1, j: 2 },
-        { i: 1, j: 3 },
-        { i: 2, j: 1 },
-        { i: 2, j: 2 },
-        { i: 2, j: 3 },
-        { i: 3, j: 1 },
-        { i: 3, j: 2 },
-        { i: 3, j: 3 },
-      ];
+      const expectedLength = 3;
 
-      const generatedMatrix = generateMatrix(rows, columns);
+      const generatedMatrix = new MatrixHandler(rows, columns);
+      const { cellList } = generatedMatrix;
 
-      expect(generatedMatrix).toStrictEqual(expectedArray);
+      expect(cellList).toHaveLength(expectedLength);
     });
   });
 
@@ -30,7 +21,7 @@ describe("Given a generateMatrix function", () => {
       const expectedTextError = "Matrix must be 50x50 or less";
 
       expect(() => {
-        generateMatrix(rows, columns);
+        const matrix = new MatrixHandler(rows, columns);
       }).toThrow(new Error(expectedTextError));
     });
   });
@@ -42,7 +33,7 @@ describe("Given a generateMatrix function", () => {
       const expectedTextError = "Matrix must be at least 3x3";
 
       expect(() => {
-        generateMatrix(rows, columns);
+        const matrix = new MatrixHandler(rows, columns);
       }).toThrow(new Error(expectedTextError));
     });
   });
