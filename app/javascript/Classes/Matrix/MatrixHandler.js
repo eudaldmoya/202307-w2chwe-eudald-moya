@@ -27,8 +27,7 @@ class MatrixHandler {
       for (let j = 1; j <= this.columns; j++) {
         const cell = new Cell(Math.random() < 0.4);
         const cellDiv = document.createElement("div");
-        const text = document.createTextNode(`${cell.isAlive ? 1 : 0}`);
-        cellDiv.appendChild(text);
+        cellDiv.style.background = cell.isAlive ? "#AFFC41" : "#086375";
         cellDiv.classList.add("cell-div");
         grid.appendChild(cellDiv);
         cellColumns.push(cell);
@@ -46,7 +45,9 @@ class MatrixHandler {
     for (let i = 0; i < this.cellList.length; i++) {
       for (let j = 0; j < this.cellList[0].length; j++) {
         this.cellList[i][j].isAlive = newStatesList[position];
-        cellDivs[position].textContent = this.cellList[i][j].isAlive ? 1 : 0;
+        cellDivs[position].style.background = this.cellList[i][j].isAlive
+          ? "#AFFC41"
+          : "#086375";
         position++;
       }
     }
