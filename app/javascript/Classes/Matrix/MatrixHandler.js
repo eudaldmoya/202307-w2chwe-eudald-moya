@@ -20,11 +20,17 @@ class MatrixHandler {
       throw new Error("Matrix must be 50x50 or less");
     }
 
+    const grid = document.querySelector(".game-grid");
     const cellRows = [];
     for (let i = 1; i <= this.rows; i++) {
       const cellColumns = [];
       for (let j = 1; j <= this.columns; j++) {
         const cell = new Cell(Math.random() < 0.4);
+        const cellDiv = document.createElement("div");
+        const text = document.createTextNode(`${cell.isAlive ? 1 : 0}`);
+        cellDiv.appendChild(text);
+        cellDiv.classList.add("cell-div");
+        grid.appendChild(cellDiv);
         cellColumns.push(cell);
       }
 
@@ -35,10 +41,12 @@ class MatrixHandler {
   }
 
   setNewCellStates(newStatesList) {
+    const cellDivs = document.querySelectorAll(".cell-div");
     let position = 0;
     for (let i = 0; i < this.cellList.length; i++) {
       for (let j = 0; j < this.cellList[0].length; j++) {
         this.cellList[i][j].isAlive = newStatesList[position];
+        cellDivs[position].textContent = this.cellList[i][j].isAlive ? 1 : 0;
         position++;
       }
     }
