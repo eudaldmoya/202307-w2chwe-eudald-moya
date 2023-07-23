@@ -1,7 +1,9 @@
 import Cell from "./Classes/Cell/Cell.js";
-import generateMatrix from "./generateMatrix.js";
+import MatrixHandler from "./Classes/Matrix/MatrixHandler.js";
 
-console.log(generateMatrix(4, 4));
+const matrix = new MatrixHandler(4, 4);
+console.table(matrix.cellList);
+console.log(matrix.getNewCellsState());
 
 const cell = new Cell(2, 2, true);
 console.log(cell);
