@@ -1,7 +1,7 @@
 import Cell from "./Classes/Cell/Cell.js";
-import Matrix from "./Classes/Matrix/MatrixHandler.js";
+import MatrixHandler from "./Classes/Matrix/MatrixHandler.js";
 
-const matrix = new Matrix(4, 4);
+const matrix = new MatrixHandler(4, 4);
 console.table(matrix.cellList);
 console.log(matrix.getNewCellsState());
 
