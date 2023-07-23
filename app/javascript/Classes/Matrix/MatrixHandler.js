@@ -20,11 +20,17 @@ class MatrixHandler {
       throw new Error("Matrix must be 50x50 or less");
     }
 
+    const grid = document.querySelector(".game-grid");
     const cellRows = [];
     for (let i = 1; i <= this.rows; i++) {
       const cellColumns = [];
       for (let j = 1; j <= this.columns; j++) {
         const cell = new Cell(Math.random() < 0.4);
+        const cellDiv = document.createElement("div");
+        const text = document.createTextNode(`${cell.isAlive ? 1 : 0}`);
+        cellDiv.appendChild(text);
+        cellDiv.classList.add("cell-div");
+        grid.appendChild(cellDiv);
         cellColumns.push(cell);
       }
 
