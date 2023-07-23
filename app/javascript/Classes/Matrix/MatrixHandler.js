@@ -39,7 +39,7 @@ class MatrixHandler {
     return cellRows;
   }
 
-  setNewCellsState(newStatesList) {
+  setNewCellStates(newStatesList) {
     const cellDivs = document.querySelectorAll(".cell-div");
     let position = 0;
     for (let i = 0; i < this.cellList.length; i++) {
@@ -53,7 +53,7 @@ class MatrixHandler {
     }
   }
 
-  getNewCellsState() {
+  getNewCellStates() {
     const newStatesList = [];
     for (let i = 0; i < this.cellList.length; i++) {
       for (let j = 0; j < this.cellList[0].length; j++) {
