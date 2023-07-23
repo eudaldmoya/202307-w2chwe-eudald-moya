@@ -34,6 +34,16 @@ class MatrixHandler {
     return cellRows;
   }
 
+  setNewCellStates(newStatesList) {
+    let position = 0;
+    for (let i = 0; i < this.cellList.length; i++) {
+      for (let j = 0; j < this.cellList[0].length; j++) {
+        this.cellList[i][j].isAlive = newStatesList[position];
+        position++;
+      }
+    }
+  }
+
   getNewCellsState() {
     const newStatesList = [];
     for (let i = 0; i < this.cellList.length; i++) {
